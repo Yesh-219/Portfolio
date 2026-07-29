@@ -1,0 +1,27 @@
+{"level":"info","message":"☁️ Cloudinary SDK configured successfully","timestamp":"2026-07-28 16:39:59"}
+{"level":"info","message":"🚀 Portfolio Enterprise REST API Server Running on Port 5000","timestamp":"2026-07-28 16:39:59"}
+{"level":"info","message":"📖 Swagger Documentation available at http://localhost:5000/api/docs","timestamp":"2026-07-28 16:39:59"}
+{"level":"info","message":"GET /api/docs 301 158 - 17.199 ms","timestamp":"2026-07-28 16:42:47"}
+{"level":"info","message":"GET /api/docs/ 200 3106 - 7.858 ms","timestamp":"2026-07-28 16:42:47"}
+{"level":"info","message":"GET /api/docs/swagger-ui.css 200 178977 - 13.349 ms","timestamp":"2026-07-28 16:42:48"}
+{"level":"info","message":"GET /api/docs/swagger-ui-standalone-preset.js 200 268471 - 11.737 ms","timestamp":"2026-07-28 16:42:48"}
+{"level":"info","message":"GET /api/docs/swagger-ui-init.js 200 9337 - 1.276 ms","timestamp":"2026-07-28 16:42:48"}
+{"level":"info","message":"GET /api/docs/swagger-ui-bundle.js 200 1551729 - 15.389 ms","timestamp":"2026-07-28 16:42:48"}
+{"level":"info","message":"GET /api/docs/favicon-32x32.png 200 628 - 2.878 ms","timestamp":"2026-07-28 16:42:52"}
+{"level":"info","message":"GET /api/docs/ 304 - - 5.003 ms","timestamp":"2026-07-28 16:47:21"}
+{"level":"info","message":"GET /api/docs/swagger-ui.css 304 - - 7.290 ms","timestamp":"2026-07-28 16:47:21"}
+{"level":"info","message":"GET /api/docs/swagger-ui-bundle.js 304 - - 6.957 ms","timestamp":"2026-07-28 16:47:21"}
+{"level":"info","message":"GET /api/docs/swagger-ui-standalone-preset.js 304 - - 2.154 ms","timestamp":"2026-07-28 16:47:21"}
+{"level":"info","message":"GET /api/docs/swagger-ui-init.js 304 - - 1.606 ms","timestamp":"2026-07-28 16:47:21"}
+{"level":"info","message":"GET /api-docs 404 67 - 2.552 ms","timestamp":"2026-07-28 16:50:55"}
+{"level":"info","message":"GET /favicon.ico 404 70 - 1.281 ms","timestamp":"2026-07-28 16:50:56"}
+{"level":"info","message":"GET /api/docs-json 404 72 - 2.300 ms","timestamp":"2026-07-28 16:51:03"}
+{"level":"info","message":"GET /api/docs/ 304 - - 2.346 ms","timestamp":"2026-07-28 16:51:08"}
+{"level":"info","message":"GET /api/docs/swagger-ui-bundle.js 304 - - 2.556 ms","timestamp":"2026-07-28 16:51:08"}
+{"level":"info","message":"GET /api/docs/swagger-ui-standalone-preset.js 304 - - 2.834 ms","timestamp":"2026-07-28 16:51:08"}
+{"level":"info","message":"GET /api/docs/swagger-ui-init.js 304 - - 0.932 ms","timestamp":"2026-07-28 16:51:08"}
+{"level":"info","message":"GET /api/docs/swagger-ui.css 304 - - 4.336 ms","timestamp":"2026-07-28 16:51:08"}
+{"level":"info","message":"GET /api/v1/experiences 304 - - 7.160 ms","timestamp":"2026-07-28 16:55:44"}
+{"level":"info","message":"GET /api/v1/projects?category=All 200 1921 - 8.496 ms","timestamp":"2026-07-28 16:55:44"}
+{"level":"info","message":"GET /api/v1/experiences 304 - - 6.515 ms","timestamp":"2026-07-28 16:55:44"}
+{"level":"info","message":"GET /api/v1/projects?category=All 304 - - 10.070 ms","timestamp":"2026-07-28 16:55:44"}

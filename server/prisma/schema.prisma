@@ -1,0 +1,167 @@
+// Prisma Schema for Enterprise Portfolio REST API
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum ProjectCategory {
+  BACKEND
+  FULL_STACK
+  DEEP_LEARNING
+  OTHER
+}
+
+enum SkillCategory {
+  BACKEND
+  FRONTEND
+  LANGUAGES
+  DATABASE
+  CLOUD_TOOLS
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  name          String         @db.VarChar(100)
+  email         String         @unique @db.VarChar(150)
+  passwordHash  String         @map("password_hash") @db.VarChar(255)
+  role          Role           @default(ADMIN)
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique @db.VarChar(500)
+  userId    Int      @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked   Boolean  @default(false)
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model Project {
+  id                   Int             @id @default(autoincrement())
+  title                String          @db.VarChar(150)
+  slug                 String          @unique @db.VarChar(180)
+  tagline              String?         @db.VarChar(255)
+  description          String          @db.Text
+  architectureDetails String?         @map("architecture_details") @db.Text
+  technologies         Json            // Store JSON array of technology strings
+  category             ProjectCategory @default(BACKEND)
+  featured             Boolean         @default(false)
+  imageUrl             String?         @map("image_url") @db.VarChar(500)
+  githubUrl            String?         @map("github_url") @db.VarChar(500)
+  demoUrl              String?         @map("demo_url") @db.VarChar(500)
+  displayOrder         Int             @default(0) @map("display_order")
+  createdAt            DateTime        @default(now()) @map("created_at")
+  updatedAt            DateTime        @updatedAt @map("updated_at")
+
+  @@index([category])
+  @@index([featured])
+  @@map("projects")
+}
+
+model Skill {
+  id                    Int           @id @default(autoincrement())
+  name                  String        @db.VarChar(100)
+  category              SkillCategory @default(BACKEND)
+  proficiencyPercentage Int           @default(90) @map("proficiency_percentage")
+  iconName              String?       @map("icon_name") @db.VarChar(100)
+  featured              Boolean       @default(true)
+  displayOrder          Int           @default(0) @map("display_order")
+  createdAt             DateTime      @default(now()) @map("created_at")
+
+  @@index([category])
+  @@map("skills")
+}
+
+model Experience {
+  id               Int       @id @default(autoincrement())
+  company          String    @db.VarChar(150)
+  role             String    @db.VarChar(150)
+  location         String?   @db.VarChar(100)
+  startDate        DateTime  @map("start_date")
+  endDate          DateTime? @map("end_date")
+  isCurrent        Boolean   @default(false) @map("is_current")
+  responsibilities Json      // Store JSON array of achievement strings
+  technologies     Json      // Store JSON array of tech strings
+  displayOrder     Int       @default(0) @map("display_order")
+  createdAt        DateTime  @default(now()) @map("created_at")
+
+  @@map("experiences")
+}
+
+model Certificate {
+  id              Int      @id @default(autoincrement())
+  title           String   @db.VarChar(200)
+  issuer          String   @db.VarChar(150)
+  issueDate       DateTime @map("issue_date")
+  credentialUrl   String?  @map("credential_url") @db.VarChar(500)
+  certificateCode String?  @map("certificate_code") @db.VarChar(100)
+  imageUrl        String?  @map("image_url") @db.VarChar(500)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  @@map("certificates")
+}
+
+model Message {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(120)
+  email     String   @db.VarChar(150)
+  subject   String?  @db.VarChar(200)
+  message   String   @db.Text
+  ipAddress String?  @map("ip_address") @db.VarChar(45)
+  userAgent String?  @map("user_agent") @db.VarChar(300)
+  isRead    Boolean  @default(false) @map("is_read")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([isRead])
+  @@map("messages")
+}
+
+model SocialLink {
+  id           Int      @id @default(autoincrement())
+  platform     String   @db.VarChar(50)
+  url          String   @db.VarChar(500)
+  iconName     String?  @map("icon_name") @db.VarChar(50)
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("social_links")
+}
+
+model SiteSettings {
+  id        Int      @id @default(autoincrement())
+  keyName   String   @unique @map("key_name") @db.VarChar(100)
+  keyValue  String   @map("key_value") @db.Text
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
+
+model Analytics {
+  id        Int      @id @default(autoincrement())
+  pagePath  String   @map("page_path") @db.VarChar(255)
+  referrer  String?  @db.VarChar(500)
+  userAgent String?  @map("user_agent") @db.VarChar(300)
+  ipHash    String?  @map("ip_hash") @db.VarChar(64)
+  visitedAt DateTime @default(now()) @map("visited_at")
+
+  @@index([visitedAt])
+  @@map("analytics")
+}

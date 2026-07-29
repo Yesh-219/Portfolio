@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\DELL\\OneDrive\\Documents\\Projects\\portfolio\\server\\logs\\.a33e47acbf502befb4e313de3929cd74fb7475df-audit.json",
+    "files": [
+        {
+            "date": 1785236969418,
+            "name": "C:\\Users\\DELL\\OneDrive\\Documents\\Projects\\portfolio\\server\\logs\\error-2026-07-28.log",
+            "hash": "89120ab72dab1bdc0230e4efad4d53d4c547a497110dd357d3c0ca0f9be9c63c"
+        },
+        {
+            "date": 1785301459686,
+            "name": "C:\\Users\\DELL\\OneDrive\\Documents\\Projects\\portfolio\\server\\logs\\error-2026-07-29.log",
+            "hash": "dcee2ff1230ef240ee10da12b00a4f3ff793727646c9d162123854426bd1d5ad"
+        }
+    ],
+    "hashType": "sha256"
+}
